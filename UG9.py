@@ -100,8 +100,16 @@ class PriorityQueueUnsorted:
         print()
     
     def ubahBersama(self, prio, namaBaru):  # untuk mengubah data secara sekaligus
-        pass 
-        # tulis kode Anda di sini
+        bantu = self._head
+        # print("===List Unsorted Queue===")
+        while bantu!=None:
+            if bantu._priority==prio:
+                bantu._data=namaBaru
+            # print(bantu._priority," = ",bantu._data)
+            bantu = bantu._next
+
+
+        # print()
     
     def removePrioSekaligus(self): # untuk menghapus data priority terkecil sekaligus
         # tulis kode Anda di sini
@@ -128,15 +136,13 @@ class PriorityQueueUnsorted:
                 if hapus==self._head:
                     self._head=self._head._next
                     hapus._next=None
-                    # print("data",self._head._data," terhapus")
                     del hapus
 
                 else:
                     bantu2=hapus._next
-                    # bantu2.next=hapus._next
                     hapus._next=bantu2
                     hapus._next=None
-                    # print("data",hapus._data," terhapus")
+
                     del hapus
                 self.size = self._size - 1
         else:
@@ -156,8 +162,8 @@ myQueue.add("Shalom",3)
 myQueue.add("Harris",2)
 myQueue.print_all()
 
-# myQueue.ubahBersama(2,"Mahasiswa A")
-# myQueue.print_all()
+myQueue.ubahBersama(2,"Mahasiswa A")
+myQueue.print_all()
 
 myQueue.removePrioSekaligus()
 myQueue.print_all()
